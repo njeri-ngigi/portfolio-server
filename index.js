@@ -1,14 +1,18 @@
-const express = require("express");
-const dotenv = require("dotenv");
-const sgMail = require("@sendgrid/mail");
-const { validateMail } = require("./validate");
+const express = require('express');
+const cors = require('cors');
+const dotenv = require('dotenv');
+const sgMail = require('@sendgrid/mail');
+const { validateMail } = require('./validate');
 
 dotenv.config();
 
 const app = express();
+const corsOptions = { origin: process.env.CORS_ORIGIN };
+
+app.use(cors(corsOptions))
 app.use(express.json());
 
-app.post("/", validateMail, (req, res) => {
+app.post('/', validateMail, (req, res) => {
   try {
     const { email, message } = req.body;
     const body = {
@@ -29,5 +33,5 @@ app.post("/", validateMail, (req, res) => {
 });
 
 app.listen(3000, () => {
-  console.log("Server running on port 3000");
+  console.log('Server running on port 3000');
 });
