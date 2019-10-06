@@ -1,0 +1,18 @@
+{
+  "name": "portfolio-server",
+  "version": "1.0.0",
+  "description": "portfolio-server",
+  "main": "index.js",
+  "repository": "https://github.com/njeri-ngigi/portfolio-server.git",
+  "author": "Njeri Ngigi <njery.ngigi@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@sendgrid/mail": "^6.4.0",
+    "dotenv": "^8.1.0",
+    "email-validator": "^2.0.4",
+    "express": "^4.17.1"
+  }
+}
